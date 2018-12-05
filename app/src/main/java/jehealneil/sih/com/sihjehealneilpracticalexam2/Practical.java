@@ -3,43 +3,31 @@ package jehealneil.sih.com.sihjehealneilpracticalexam2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
-public class Practical extends AppCompatActivity {
-
-
-    EditText firstnameInput,lastnameInput,exam1input,exam2input,resultOutput;
-    Button buttonResult;
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_practical);
-            firstnameInput=(EditText)findViewById(R.id.firstnameInput);
-            lastnameInput=(EditText)findViewById(R.id.lastnameInput);
-            exam1input=(EditText)findViewById(R.id.exam1Input);
-            exam2input=(EditText)findViewById(R.id.exam2Input);
-        resultOutput=(EditText)findViewById(R.id.result);
-            buttonResult=(Button)findViewById(R.id.buttonResult);
-            buttonResult.setOnClickListener(new OnClickListener(){
-                @Override
-                public void onClick(View view) {
-                    String first;
-                    String second;
-                    int third;
-                    int fourth;
-                    int result;
-                    first=String.valueOf(firstnameInput.getText().toString());
-                    second=String.valueOf(lastnameInput.getText().toString());
-                    third=Integer.valueOf(exam1input.getText().toString());
-                    fourth=Integer.valueOf(exam2input.getText().toString());
-                    result=(third + fourth)/2;
-                    resultOutput.setText(String.valueOf(result));
-                }
-
-                });
-
+        setContentView(R.layout.activity_main);
     }
+
+    public void onButtonClick(View v) {
+        EditText ex11 = (EditText) findViewById(R.id.etFirst);
+        EditText ex22 = (EditText) findViewById(R.id.etSecond);
+        TextView result = (TextView) findViewById((R.id.etResult));
+        int num1 = Integer.parseInt(ex11.getText().toString());
+        int num2 = Integer.parseInt(ex22.getText().toString());
+
+        int total = (num1 + num2) / 2;
+        result.setText(Integer.toString(total));
+    }
+
 }
+
+
+
+
+
